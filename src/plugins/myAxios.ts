@@ -3,7 +3,7 @@ import router from "../../src/main"
 
 const isDev = process.env.NODE_ENV === 'development';
 const myAxios: AxiosInstance = axios.create({
-    baseURL: isDev ? 'http://localhost:8080/api' : 'http://113.45.152.60:8080/api',
+    baseURL: isDev ? 'http://localhost:8080/api' : 'https://113.45.152.60:8080/api',
 });
 
 myAxios.defaults.withCredentials = true; // 配置为true
