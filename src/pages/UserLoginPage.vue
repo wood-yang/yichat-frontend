@@ -47,7 +47,8 @@ const onSubmit = async () => {
     Toast.success('登录成功');
     // 跳转到之前的页面
     const redirectUrl = route.query?.redirect as string ?? '/';
-    window.location.href = redirectUrl;
+    // window.location.href = redirectUrl;
+    router.push(redirectUrl);
   } else {
     Toast.fail('登录失败');
   }
