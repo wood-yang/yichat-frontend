@@ -23,14 +23,8 @@
 import { useRouter } from "vue-router";
 import {ref} from "vue";
 import routes from "../../route";
-import * as VueRouter from "vue-router";
 
-// const router = useRouter();
-const router = VueRouter.createRouter({
-  // 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。
-  history: VueRouter.createWebHashHistory(),
-  routes: routes, // `routes: routes` 的缩写
-})
+const router = useRouter();
 const DEFAULT_TITLE = '伙伴匹配';
 const title = ref(DEFAULT_TITLE);
 
@@ -46,11 +40,11 @@ router.beforeEach((to, from) => {
 })
 
 const onClickLeft = () => {
-  router.back();
+  router?.back();
 };
 
 const onClickRight = () => {
-  router.push('/search')
+  router?.push('/search')
 };
 
 </script>

@@ -1,5 +1,6 @@
 <template>
-  <user-card-list :user-list="userList" />
+  <user-card-list :user-list="userList" :loading="loading"/>
+<!--  <user-card-list :user-list="userList"/>-->
   <van-empty v-if="!userList || userList.length < 1" description="搜索结果为空" />
 </template>
 
@@ -13,8 +14,8 @@ import UserCardList from "../components/UserCardList.vue";
 
 const route = useRoute();
 const {tags} = route.query;
-
 const userList = ref([]);
+const loading = ref(true);
 
 onMounted(async () => {
   const userListData = await myAxios.get('/user/search/tags', {
@@ -43,6 +44,7 @@ onMounted(async () => {
     })
     userList.value = userListData;
   }
+  loading.value = false;
 })
 
 </script>
