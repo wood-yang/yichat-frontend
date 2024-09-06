@@ -4,7 +4,7 @@
   >
     <van-card
         v-for="team in props.teamList"
-        :thumb="ikun"
+        :thumb="team.avatarUrl === null ? 'https://113.45.152.60:8888/down/xP9DJBlX6q7X.png' : team.avatarUrl"
         :desc="team.description"
         :title="`${team.name}`"
     >
@@ -20,10 +20,10 @@
           {{ `队伍人数: ${team.hasJoinNum}/${team.maxNum}` }}
         </div>
         <div v-if="team.expireTime">
-          {{ '过期时间: ' + team.expireTime }}
+          {{ '过期时间: ' + fromTime(team.expireTime) }}
         </div>
         <div>
-          {{ '创建时间: ' + team.createTime }}
+          {{ '创建时间: ' + fromTime(team.createTime) }}
         </div>
       </template>
       <template #footer>
@@ -53,7 +53,6 @@
 <script setup lang="ts">
 import {TeamType} from "../models/team";
 import {teamStatusEnum} from "../constants/team";
-import ikun from '../assets/ikun.png';
 import myAxios from "../plugins/myAxios";
 import {Dialog, Toast} from "vant";
 import {onMounted, ref} from "vue";
@@ -155,6 +154,20 @@ const doDeleteTeam = async (id: number) => {
     Toast.fail('操作失败' + (res.description ? `，${res.description}` : ''));
   }
 }
+
+/**
+ * 转换日期格式
+ * @param timer
+ */
+const fromTime = (timer: any) => {
+  console.log(timer);
+  let jsonDate = new Date(timer).toJSON()
+  // @ts-ignore
+  return new Date(new Date(jsonDate) + 8 * 3600 * 1000)
+      .toISOString()
+      .replace(/T/g, ' ')
+      .replace(/\.[\d]{3}Z/, '')
+};
 
 </script>
 

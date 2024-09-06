@@ -52,6 +52,32 @@ const originTagList = [{
       {text: '大四', id: '大四'},
     ],
   },
+  {
+    text: '编程语言',
+    children: [
+      {text: 'java', id: 'Java'},
+      {text: 'c++', id: 'C++'},
+      {text: 'python', id: 'Python'},
+      {text: 'php', id: 'Php'},
+    ],
+  },
+  // {
+  //   text: '爱好',
+  //   children: [
+  //     {text: 'Swim', id: 'Swim'},
+  //     {text: 'Sing', id: 'Sing'},
+  //     {text: 'Rap', id: 'Rap'},
+  //   ],
+  // },
+  // {
+  //   text: '状态',
+  //   children: [
+  //     {text: 'happy', id: 'happy'},
+  //     {text: 'emo', id: 'emo'},
+  //     {text: 'angry', id: 'angry'},
+  //     {text: 'sad', id: 'sad'},
+  //   ],
+  // },
 ]
 
 // 标签列表

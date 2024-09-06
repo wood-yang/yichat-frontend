@@ -5,12 +5,18 @@
       <van-tab title="公开" name="public" />
       <van-tab title="加密" name="private" />
     </van-tabs>
-    <div style="margin-bottom: 16px" />
-
+    <van-cell>
+      <template #right-icon>
+        <van-button square type="primary" style="z-index: 999;" @click="toAddTeam">创建队伍</van-button>
+      </template>
+    </van-cell>
+<!--    <div style="margin-bottom: 16px" />-->
     <team-card-list :teamList="teamList" />
     <van-empty v-if="teamList?.length < 1" description="数据为空"/>
   </div>
-  <van-button class="add-button" type="primary" icon="plus" @click="toAddTeam" />
+<!--  <div>-->
+<!--    <van-button class="rigdown" type="primary" icon="plus" icon-position="right" @click="toAddTeam" />-->
+<!--  </div>-->
 </template>
 
 <script setup lang="ts">

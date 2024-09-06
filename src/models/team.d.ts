@@ -12,7 +12,7 @@ export type TeamType = {
     maxNum: number;
     hasJoin: boolean;
     password?: string,
-    // todo 定义枚举值类型，更规范
+    avatarUrl?: string,
     status: number;
     createTime: Date;
     updateTime: Date;
