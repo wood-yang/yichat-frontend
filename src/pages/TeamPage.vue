@@ -14,9 +14,6 @@
     <team-card-list :teamList="teamList" />
     <van-empty v-if="teamList?.length < 1" description="数据为空"/>
   </div>
-<!--  <div>-->
-<!--    <van-button class="rigdown" type="primary" icon="plus" icon-position="right" @click="toAddTeam" />-->
-<!--  </div>-->
 </template>
 
 <script setup lang="ts">
